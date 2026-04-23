@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ["claude/drone-soccer-landing-page-dVkk8", "main"]
+  workflow_dispatch:
 
 permissions:
   contents: read
