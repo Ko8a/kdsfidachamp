@@ -52,16 +52,9 @@ export default function Header() {
         }}
       >
         {/* Logo */}
-        <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
-          <KdsLogo />
-          <div>
-            <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.15em", color: "#6b9fd4", textTransform: "uppercase", lineHeight: 1 }}>
-              Kazakhstan
-            </div>
-            <div style={{ fontSize: "1rem", fontWeight: 900, color: "#0d1f4e", letterSpacing: "0.05em", lineHeight: 1.1 }}>
-              KDS
-            </div>
-          </div>
+        <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/kdsfidachamp/kds-logo-small.png" alt="KDS Logo" style={{ height: "52px", width: "auto" }} />
         </a>
 
         {/* Desktop nav */}
@@ -169,25 +162,3 @@ export default function Header() {
   );
 }
 
-function KdsLogo() {
-  return (
-    <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-      <circle cx="22" cy="22" r="21" stroke="#0d1f4e" strokeWidth="1.5" fill="rgba(107,159,212,0.08)" />
-      {/* Simplified Kazakh sun/ornament */}
-      <circle cx="22" cy="22" r="8" fill="none" stroke="#c9a84c" strokeWidth="1.5" />
-      <circle cx="22" cy="22" r="3" fill="#c9a84c" />
-      {[0,45,90,135,180,225,270,315].map((deg, i) => (
-        <line
-          key={i}
-          x1={22 + 10 * Math.cos((deg * Math.PI) / 180)}
-          y1={22 + 10 * Math.sin((deg * Math.PI) / 180)}
-          x2={22 + 16 * Math.cos((deg * Math.PI) / 180)}
-          y2={22 + 16 * Math.sin((deg * Math.PI) / 180)}
-          stroke="#6b9fd4"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-      ))}
-    </svg>
-  );
-}

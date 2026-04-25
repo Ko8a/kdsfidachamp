@@ -57,16 +57,13 @@ export default function Footer() {
         >
           {/* Brand */}
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "1.25rem" }}>
-              <FooterLogo />
-              <div>
-                <div style={{ fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.15em", color: "#6b9fd4", textTransform: "uppercase" }}>
-                  Kazakhstan
-                </div>
-                <div style={{ fontSize: "1.1rem", fontWeight: 900, color: "#fff", letterSpacing: "0.05em" }}>
-                  KDS
-                </div>
-              </div>
+            <div style={{ marginBottom: "1.25rem" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/kdsfidachamp/kds-logo-small.png"
+                alt="KDS Logo"
+                style={{ height: "56px", width: "auto", filter: "brightness(0) invert(1)", opacity: 0.85 }}
+              />
             </div>
             <p style={{ fontSize: "0.83rem", lineHeight: 1.75, color: "rgba(255,255,255,0.45)", maxWidth: "280px", marginBottom: "1.5rem" }}>
               Astana FIDA Drone Soccer Championship 2026 — an international competition
@@ -243,24 +240,3 @@ export default function Footer() {
   );
 }
 
-function FooterLogo() {
-  return (
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-      <circle cx="18" cy="18" r="17" stroke="rgba(107,159,212,0.4)" strokeWidth="1.2" fill="rgba(107,159,212,0.05)" />
-      <circle cx="18" cy="18" r="7" fill="none" stroke="#c9a84c" strokeWidth="1.2" />
-      <circle cx="18" cy="18" r="2.5" fill="#c9a84c" />
-      {[0, 45, 90, 135, 180, 225, 270, 315].map((deg, i) => (
-        <line
-          key={i}
-          x1={18 + 9 * Math.cos((deg * Math.PI) / 180)}
-          y1={18 + 9 * Math.sin((deg * Math.PI) / 180)}
-          x2={18 + 14 * Math.cos((deg * Math.PI) / 180)}
-          y2={18 + 14 * Math.sin((deg * Math.PI) / 180)}
-          stroke="rgba(107,159,212,0.6)"
-          strokeWidth="1.2"
-          strokeLinecap="round"
-        />
-      ))}
-    </svg>
-  );
-}

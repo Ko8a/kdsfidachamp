@@ -7,6 +7,7 @@ const hotels = [
     desc: "Iconic 5-star property at the heart of Astana's financial district, offering unparalleled service and panoramic city views.",
     amenities: ["🍽️ Fine Dining", "🏊 Pool", "💆 Spa", "🅿️ Parking", "💼 Business Center"],
     stars: 5,
+    photo: "/kdsfidachamp/hotel-ritz.jpg",
   },
   {
     name: "The St. Regis Astana",
@@ -14,6 +15,7 @@ const hotels = [
     desc: "Sophisticated elegance in the Nurly Tau business complex, featuring butler service and world-class facilities.",
     amenities: ["🍽️ Restaurant", "🏋️ Fitness", "💆 Spa", "🍸 Bar", "🚖 Concierge"],
     stars: 5,
+    photo: "/kdsfidachamp/hotel-stregis.jpg",
   },
   {
     name: "Sheraton Astana Hotel",
@@ -21,6 +23,7 @@ const hotels = [
     desc: "A modern international hotel offering comfort and connectivity, ideally positioned near major attractions.",
     amenities: ["🍽️ Restaurant", "🏊 Pool", "🏋️ Gym", "🛜 High-speed WiFi", "🅿️ Parking"],
     stars: 5,
+    photo: "/kdsfidachamp/hotel-sheraton.jpg",
   },
   {
     name: "Hilton Astana",
@@ -28,6 +31,7 @@ const hotels = [
     desc: "Contemporary design meets Kazakh hospitality at the Hilton, steps from Astana's famous riverside promenade.",
     amenities: ["🍽️ Dining", "🏋️ Fitness Center", "💼 Business Lounge", "🛜 WiFi", "🎭 Events"],
     stars: 5,
+    photo: "/kdsfidachamp/hotel-hilton.webp",
   },
   {
     name: "Wyndham Garden Astana",
@@ -35,6 +39,7 @@ const hotels = [
     desc: "A comfortable and well-appointed hotel providing excellent value with easy access to the city's key destinations.",
     amenities: ["🍽️ Restaurant", "🏋️ Gym", "🛜 WiFi", "🅿️ Parking", "🌿 Garden"],
     stars: 4,
+    photo: "/kdsfidachamp/hotel-wyndham.webp",
   },
 ];
 
@@ -127,6 +132,7 @@ export default function Hotels() {
       </div>
 
       <style>{`
+        .hotel-card:hover .hotel-photo { transform: scale(1.06); }
         @media (max-width: 900px) {
           #hotels > div > div:nth-child(3) { grid-template-columns: repeat(2, 1fr) !important; }
           #hotels > div > div:nth-child(4) { grid-template-columns: 1fr !important; max-width: 100% !important; }
@@ -150,25 +156,37 @@ function HotelCard({ hotel }: { hotel: (typeof hotels)[0] }) {
         }}
       />
 
-      {/* Illustration */}
+      {/* Photo */}
       <div
         style={{
-          height: "140px",
-          background: "linear-gradient(135deg, #eef2f8 0%, #dce8f4 100%)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          height: "180px",
           position: "relative",
           overflow: "hidden",
+          background: "#dce8f4",
         }}
       >
-        <HotelIllustration />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={hotel.photo}
+          alt={hotel.name}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+            display: "block",
+            transition: "transform 0.5s ease",
+          }}
+          className="hotel-photo"
+        />
+        {/* Gradient overlay at bottom */}
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 55%)", pointerEvents: "none" }} />
         <div
           style={{
             position: "absolute",
             top: "10px",
             right: "10px",
-            background: "rgba(255,255,255,0.9)",
+            background: "rgba(255,255,255,0.92)",
             borderRadius: "6px",
             padding: "4px 10px",
             fontSize: "0.62rem",
@@ -186,14 +204,13 @@ function HotelCard({ hotel }: { hotel: (typeof hotels)[0] }) {
           style={{
             position: "absolute",
             bottom: "10px",
-            left: "50%",
-            transform: "translateX(-50%)",
+            left: "14px",
             display: "flex",
             gap: "2px",
           }}
         >
           {Array.from({ length: hotel.stars }).map((_, i) => (
-            <span key={i} style={{ color: "#c9a84c", fontSize: "0.75rem" }}>★</span>
+            <span key={i} style={{ color: "#f5d97e", fontSize: "0.8rem", textShadow: "0 1px 3px rgba(0,0,0,0.4)" }}>★</span>
           ))}
         </div>
       </div>
@@ -254,34 +271,3 @@ function HotelCard({ hotel }: { hotel: (typeof hotels)[0] }) {
   );
 }
 
-function HotelIllustration() {
-  return (
-    <svg width="120" height="100" viewBox="0 0 120 100" fill="none" aria-hidden="true">
-      {/* Building */}
-      <rect x="30" y="20" width="60" height="70" fill="none" stroke="#6b9fd4" strokeWidth="1.2" rx="2" />
-      {/* Windows */}
-      {[0, 1, 2, 3].map((row) =>
-        [0, 1, 2].map((col) => (
-          <rect
-            key={`${row}-${col}`}
-            x={38 + col * 16}
-            y={28 + row * 14}
-            width="8"
-            height="8"
-            fill="rgba(107,159,212,0.25)"
-            stroke="#6b9fd4"
-            strokeWidth="0.7"
-            rx="1"
-          />
-        ))
-      )}
-      {/* Door */}
-      <rect x="52" y="75" width="16" height="15" fill="none" stroke="#6b9fd4" strokeWidth="1" rx="1" />
-      {/* Entrance canopy */}
-      <path d="M 42 35 L 78 35" stroke="#c9a84c" strokeWidth="1.5" />
-      {/* Flag */}
-      <line x1="60" y1="5" x2="60" y2="20" stroke="#6b9fd4" strokeWidth="1" />
-      <path d="M 60 5 L 72 10 L 60 15" fill="#c9a84c" opacity="0.8" />
-    </svg>
-  );
-}

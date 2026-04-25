@@ -91,6 +91,12 @@ body {
 .animate-slideRight { animation: slideRight 0.9s ease-out forwards; }
 .animate-draw       { animation: draw 2.5s ease forwards; }
 
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-22px) scale(1.015); }
+}
+.animate-hero-float { animation: heroFloat 9s ease-in-out infinite; }
+
 .d-100 { animation-delay: 0.1s; }
 .d-200 { animation-delay: 0.2s; }
 .d-300 { animation-delay: 0.3s; }

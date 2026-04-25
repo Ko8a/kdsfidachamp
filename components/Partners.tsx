@@ -63,7 +63,8 @@ export default function Partners() {
             >
               Organizer
             </div>
-            <KDSLogoFull />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/kdsfidachamp/kds-logo-full.png" alt="Kazakhstan Drone Soccer" style={{ height: "80px", width: "auto", objectFit: "contain" }} />
             <div style={{ textAlign: "center" }}>
               <div style={{ fontSize: "1rem", fontWeight: 800, color: "#0d1f4e", marginBottom: "6px" }}>
                 Kazakhstan Drone Soccer
@@ -101,7 +102,8 @@ export default function Partners() {
             >
               International Partner
             </div>
-            <FIDALogoFull />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/kdsfidachamp/fida-logo.png" alt="FIDA" style={{ height: "80px", width: "auto", objectFit: "contain" }} />
             <div style={{ textAlign: "center" }}>
               <div style={{ fontSize: "1rem", fontWeight: 800, color: "#0d1f4e", marginBottom: "6px" }}>
                 FIDA
@@ -214,63 +216,3 @@ export default function Partners() {
   );
 }
 
-function KDSLogoFull() {
-  return (
-    <svg width="140" height="80" viewBox="0 0 140 80" fill="none" aria-label="KDS Logo">
-      {/* Circle emblem */}
-      <circle cx="30" cy="40" r="26" stroke="#0d1f4e" strokeWidth="1.5" fill="rgba(107,159,212,0.08)" />
-      <circle cx="30" cy="40" r="10" fill="none" stroke="#c9a84c" strokeWidth="1.5" />
-      <circle cx="30" cy="40" r="4" fill="#c9a84c" />
-      {[0, 45, 90, 135, 180, 225, 270, 315].map((deg, i) => (
-        <line
-          key={i}
-          x1={30 + 12 * Math.cos((deg * Math.PI) / 180)}
-          y1={40 + 12 * Math.sin((deg * Math.PI) / 180)}
-          x2={30 + 20 * Math.sin((deg * Math.PI) / 180) * 0 + 20 * Math.cos((deg * Math.PI) / 180)}
-          y2={40 + 20 * Math.sin((deg * Math.PI) / 180)}
-          stroke="#6b9fd4"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-      ))}
-      {/* Text */}
-      <text x="65" y="36" fontFamily="Arial, sans-serif" fontSize="22" fontWeight="900" fill="#0d1f4e" letterSpacing="-1">
-        KDS
-      </text>
-      <text x="65" y="52" fontFamily="Arial, sans-serif" fontSize="8" fontWeight="600" fill="#6b9fd4" letterSpacing="1.5">
-        DRONE SOCCER
-      </text>
-      <text x="65" y="63" fontFamily="Arial, sans-serif" fontSize="7" fontWeight="500" fill="#8299b8" letterSpacing="1">
-        KAZAKHSTAN
-      </text>
-    </svg>
-  );
-}
-
-function FIDALogoFull() {
-  return (
-    <svg width="140" height="80" viewBox="0 0 140 80" fill="none" aria-label="FIDA Logo">
-      {/* Drone ball icon */}
-      <circle cx="30" cy="40" r="22" fill="none" stroke="#0d1f4e" strokeWidth="1.5" />
-      <ellipse cx="30" cy="40" rx="22" ry="8" fill="none" stroke="#0d1f4e" strokeWidth="1" />
-      <ellipse cx="30" cy="40" rx="8" ry="22" fill="none" stroke="#0d1f4e" strokeWidth="1" />
-      {/* Mini drone */}
-      <line x1="21" y1="38" x2="39" y2="42" stroke="#c9a84c" strokeWidth="1.5" />
-      <line x1="21" y1="42" x2="39" y2="38" stroke="#c9a84c" strokeWidth="1.5" />
-      {[21, 39].map((x, i) => [38, 42].map((y, j) => (
-        <circle key={`${i}-${j}`} cx={x} cy={y} r={4} fill="none" stroke="#c9a84c" strokeWidth="1" />
-      )))}
-      <circle cx="30" cy="40" r="2.5" fill="#c9a84c" />
-      {/* Text */}
-      <text x="60" y="36" fontFamily="Arial, sans-serif" fontSize="22" fontWeight="900" fill="#0d1f4e" letterSpacing="-1">
-        FIDA
-      </text>
-      <text x="60" y="52" fontFamily="Arial, sans-serif" fontSize="6.5" fontWeight="600" fill="#6b9fd4" letterSpacing="0.8">
-        INTERNATIONAL DRONE
-      </text>
-      <text x="60" y="63" fontFamily="Arial, sans-serif" fontSize="6.5" fontWeight="500" fill="#8299b8" letterSpacing="0.8">
-        SOCCER ASSOCIATION
-      </text>
-    </svg>
-  );
-}
