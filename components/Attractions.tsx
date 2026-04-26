@@ -36,6 +36,13 @@ const attractions = [
     color: "#6b9fd4",
     photo: "/place-museum.jpg",
   },
+  {
+    name: "Borovoe National Park",
+    subtitle: "Nature's Masterpiece",
+    desc: "A stunning natural reserve just 3 hours from Astana — crystal lakes, pine forests, and granite peaks rising from the steppe, known as the 'Pearl of Kazakhstan'.",
+    color: "#4a9e6b",
+    photo: "/place-borovoe.jpg",
+  },
 ];
 
 export default function Attractions() {
@@ -118,23 +125,10 @@ export default function Attractions() {
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
             gap: "1.5rem",
-            marginBottom: "1.5rem",
           }}
+          className="attractions-grid"
         >
-          {attractions.slice(0, 3).map((a) => (
-            <AttractionCard key={a.name} attraction={a} />
-          ))}
-        </div>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "1.5rem",
-            maxWidth: "860px",
-            margin: "0 auto",
-          }}
-        >
-          {attractions.slice(3).map((a) => (
+          {attractions.map((a) => (
             <AttractionCard key={a.name} attraction={a} />
           ))}
         </div>
@@ -143,11 +137,10 @@ export default function Attractions() {
       <style>{`
         .attraction-card:hover .attraction-photo { transform: scale(1.07); }
         @media (max-width: 900px) {
-          #astana > div > div:nth-child(3) { grid-template-columns: repeat(2, 1fr) !important; }
-          #astana > div > div:nth-child(4) { grid-template-columns: 1fr !important; max-width: 100% !important; }
+          #astana .attractions-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 600px) {
-          #astana > div > div:nth-child(3) { grid-template-columns: 1fr !important; }
+          #astana .attractions-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>
