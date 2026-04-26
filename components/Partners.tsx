@@ -64,7 +64,7 @@ export default function Partners() {
               Organizer
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/kdsfidachamp/kds-logo-full.png" alt="Kazakhstan Drone Soccer" style={{ height: "80px", width: "auto", objectFit: "contain" }} />
+            <img src="/kds-logo-full.png" alt="Kazakhstan Drone Soccer" style={{ height: "80px", width: "auto", objectFit: "contain" }} />
             <div style={{ textAlign: "center" }}>
               <div style={{ fontSize: "1rem", fontWeight: 800, color: "#0d1f4e", marginBottom: "6px" }}>
                 Kazakhstan Drone Soccer
@@ -103,7 +103,7 @@ export default function Partners() {
               International Partner
             </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/kdsfidachamp/fida-logo.png" alt="FIDA" style={{ height: "80px", width: "auto", objectFit: "contain" }} />
+            <img src="/fida-logo.png" alt="FIDA" style={{ height: "80px", width: "auto", objectFit: "contain" }} />
             <div style={{ textAlign: "center" }}>
               <div style={{ fontSize: "1rem", fontWeight: 800, color: "#0d1f4e", marginBottom: "6px" }}>
                 FIDA
