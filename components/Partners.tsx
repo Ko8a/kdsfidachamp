@@ -138,38 +138,31 @@ export default function Partners() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: "3rem",
+              gap: "4rem",
               flexWrap: "wrap",
             }}
           >
             {[
-              { name: "Akimat of Astana", sub: "City Authority" },
-              { name: "Droned", sub: "Technology Partner" },
-              { name: "Astana Hub", sub: "Innovation Partner" },
-            ].map(({ name, sub }) => (
-              <div key={name} style={{ textAlign: "center", opacity: 0.7 }}>
-                <div
+              { logo: "/logo-astanadaryny.png", alt: "Astana Daryny", sub: "City Authority" },
+              { logo: "/logo-droned.png", alt: "DronED", sub: "Technology Partner" },
+              { logo: "/logo-astanahub.svg", alt: "Astana Hub", sub: "Innovation Partner" },
+            ].map(({ logo, alt, sub }) => (
+              <div key={alt} style={{ textAlign: "center" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={logo}
+                  alt={alt}
                   style={{
-                    width: "80px",
-                    height: "48px",
-                    background: "rgba(107,159,212,0.1)",
-                    border: "1px solid rgba(107,159,212,0.2)",
-                    borderRadius: "6px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    margin: "0 auto 8px",
-                    fontSize: "0.6rem",
-                    fontWeight: 700,
-                    color: "#3a5080",
-                    letterSpacing: "0.05em",
-                    textTransform: "uppercase",
-                    padding: "4px",
-                    textAlign: "center",
+                    height: "52px",
+                    width: "auto",
+                    maxWidth: "160px",
+                    objectFit: "contain",
+                    display: "block",
+                    margin: "0 auto 10px",
+                    filter: "grayscale(20%)",
+                    opacity: 0.85,
                   }}
-                >
-                  {name}
-                </div>
+                />
                 <div style={{ fontSize: "0.65rem", color: "#8299b8", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 600 }}>
                   {sub}
                 </div>
