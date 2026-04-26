@@ -54,7 +54,7 @@ export default function Header() {
         {/* Logo */}
         <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/kdsfidachamp/kds-logo-small.png" alt="KDS Logo" style={{ height: "52px", width: "auto" }} />
+          <img src="/kds-logo-small.png" alt="KDS Logo" style={{ height: "52px", width: "auto" }} />
         </a>
 
         {/* Desktop nav */}

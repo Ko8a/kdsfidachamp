@@ -7,7 +7,7 @@ const hotels = [
     desc: "Iconic 5-star property at the heart of Astana's financial district, offering unparalleled service and panoramic city views.",
     amenities: ["🍽️ Fine Dining", "🏊 Pool", "💆 Spa", "🅿️ Parking", "💼 Business Center"],
     stars: 5,
-    photo: "/kdsfidachamp/hotel-ritz.jpg",
+    photo: "/hotel-ritz.jpg",
   },
   {
     name: "The St. Regis Astana",
@@ -15,7 +15,7 @@ const hotels = [
     desc: "Sophisticated elegance in the Nurly Tau business complex, featuring butler service and world-class facilities.",
     amenities: ["🍽️ Restaurant", "🏋️ Fitness", "💆 Spa", "🍸 Bar", "🚖 Concierge"],
     stars: 5,
-    photo: "/kdsfidachamp/hotel-stregis.jpg",
+    photo: "/hotel-stregis.jpg",
   },
   {
     name: "Sheraton Astana Hotel",
@@ -23,7 +23,7 @@ const hotels = [
     desc: "A modern international hotel offering comfort and connectivity, ideally positioned near major attractions.",
     amenities: ["🍽️ Restaurant", "🏊 Pool", "🏋️ Gym", "🛜 High-speed WiFi", "🅿️ Parking"],
     stars: 5,
-    photo: "/kdsfidachamp/hotel-sheraton.jpg",
+    photo: "/hotel-sheraton.jpg",
   },
   {
     name: "Hilton Astana",
@@ -31,7 +31,7 @@ const hotels = [
     desc: "Contemporary design meets Kazakh hospitality at the Hilton, steps from Astana's famous riverside promenade.",
     amenities: ["🍽️ Dining", "🏋️ Fitness Center", "💼 Business Lounge", "🛜 WiFi", "🎭 Events"],
     stars: 5,
-    photo: "/kdsfidachamp/hotel-hilton.webp",
+    photo: "/hotel-hilton.webp",
   },
   {
     name: "Wyndham Garden Astana",
@@ -39,7 +39,7 @@ const hotels = [
     desc: "A comfortable and well-appointed hotel providing excellent value with easy access to the city's key destinations.",
     amenities: ["🍽️ Restaurant", "🏋️ Gym", "🛜 WiFi", "🅿️ Parking", "🌿 Garden"],
     stars: 4,
-    photo: "/kdsfidachamp/hotel-wyndham.webp",
+    photo: "/hotel-wyndham.webp",
   },
 ];
 
