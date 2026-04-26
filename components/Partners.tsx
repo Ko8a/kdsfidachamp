@@ -199,12 +199,6 @@ export default function Partners() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 700px) {
-          #partners > div > div:nth-child(3) { grid-template-columns: 1fr !important; }
-          #partners > div > div:nth-child(3) > div:nth-child(2) { height: 1px !important; width: 80% !important; margin: 0 auto; }
-        }
-      `}</style>
     </section>
   );
 }
