@@ -16,9 +16,9 @@ const attractions = [
     photo: "/place-khanshatyr.jpg",
   },
   {
-    name: "Nur Alem / EXPO",
+    name: "Alem.AI",
     subtitle: "Sphere of Future",
-    desc: "The world's largest spherical building, built for EXPO 2017 in Astana. Now a museum of future energy and sustainable technology.",
+    desc: "The world's largest spherical building, built for EXPO 2017 in Astana. Now home to Alem.AI — Kazakhstan's center for artificial intelligence development.",
     color: "#6b9fd4",
     photo: "/place-nuralem.jpg",
   },
