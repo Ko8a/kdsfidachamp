@@ -39,6 +39,7 @@ export default function CTA() {
       <div style={{ maxWidth: "900px", margin: "0 auto", position: "relative" }}>
         {/* Main CTA block */}
         <div
+          className="cta-card"
           style={{
             background: "linear-gradient(160deg, #0d1f4e 0%, #1a3370 60%, #0d2960 100%)",
             borderRadius: "16px",
@@ -162,6 +163,7 @@ export default function CTA() {
 
           {/* Contact info row */}
           <div
+            className="cta-contacts"
             style={{
               display: "flex",
               gap: "2rem",
@@ -245,32 +247,73 @@ export default function CTA() {
             Follow Updates
           </span>
           {[
-            { name: "Instagram", icon: "📸" },
-            { name: "YouTube", icon: "▶️" },
-            { name: "Telegram", icon: "✈️" },
-          ].map(({ name, icon }) => (
-            <div
+            {
+              name: "Instagram",
+              href: "https://www.instagram.com/dronesoccer.kz/",
+              icon: (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-label="Instagram">
+                  <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="url(#ig-grad)" strokeWidth="2"/>
+                  <circle cx="12" cy="12" r="4.5" stroke="url(#ig-grad)" strokeWidth="2"/>
+                  <circle cx="17.5" cy="6.5" r="1.2" fill="url(#ig-grad)"/>
+                  <defs>
+                    <linearGradient id="ig-grad" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+                      <stop stopColor="#f9a825"/>
+                      <stop offset="0.4" stopColor="#e1306c"/>
+                      <stop offset="1" stopColor="#833ab4"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              ),
+            },
+            {
+              name: "YouTube",
+              href: "https://www.youtube.com/@KazDroneSoccer",
+              icon: (
+                <svg width="24" height="22" viewBox="0 0 24 17" fill="none" aria-label="YouTube">
+                  <rect x="0.5" y="0.5" width="23" height="16" rx="4" fill="#FF0000"/>
+                  <path d="M9.5 4.5L16 8.5L9.5 12.5V4.5Z" fill="white"/>
+                </svg>
+              ),
+            },
+            {
+              name: "Telegram",
+              href: "https://t.me/dronesoccerkz",
+              icon: (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-label="Telegram">
+                  <circle cx="12" cy="12" r="12" fill="#26A5E4"/>
+                  <path d="M5.5 11.8L17.3 7.2C17.9 7 18.4 7.4 18.2 8.1L16.3 16.8C16.1 17.5 15.7 17.7 15.1 17.3L12.4 15.3L11.1 16.6C10.9 16.8 10.8 17 10.4 17L10.6 14.2L15.9 9.4C16.1 9.2 15.9 9.1 15.6 9.3L9 13.5L6.3 12.7C5.6 12.5 5.6 12 5.5 11.8Z" fill="white"/>
+                </svg>
+              ),
+            },
+          ].map(({ name, href, icon }) => (
+            <a
               key={name}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={name}
+              className="social-btn"
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "8px",
-                background: "#f5f3ee",
+                justifyContent: "center",
+                width: "48px",
+                height: "48px",
+                background: "#fff",
                 border: "1px solid rgba(107,159,212,0.2)",
-                borderRadius: "6px",
-                padding: "8px 16px",
-                fontSize: "0.8rem",
-                fontWeight: 600,
-                color: "#0d1f4e",
+                borderRadius: "10px",
                 cursor: "pointer",
-                transition: "all 0.3s ease",
+                transition: "all 0.25s ease",
+                textDecoration: "none",
+                boxShadow: "0 2px 8px rgba(13,31,78,0.06)",
               }}
             >
-              {icon} {name}
-            </div>
+              {icon}
+            </a>
           ))}
         </div>
       </div>
+      <style>{`.social-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(13,31,78,0.12) !important; border-color: rgba(107,159,212,0.4) !important; }`}</style>
     </section>
   );
 }

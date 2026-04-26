@@ -144,8 +144,9 @@ export default function Program() {
               }}
             >
               {/* Date column */}
-              <div>
+              <div className="day-date-col">
                 <div
+                  className="day-date-inner"
                   style={{
                     display: "inline-flex",
                     flexDirection: "column",
@@ -255,23 +256,36 @@ export default function Program() {
           ))}
         </div>
 
-        {/* Note */}
-        <p
-          style={{
-            textAlign: "center",
-            marginTop: "2.5rem",
-            fontSize: "0.8rem",
-            color: "#8299b8",
-            fontStyle: "italic",
-          }}
-        >
-          This competition must use only FIDA-approved official balls and FIDA rules.
-        </p>
+        {/* Notes */}
+        <div style={{ marginTop: "2.5rem", display: "flex", flexDirection: "column", gap: "0.75rem", alignItems: "center" }}>
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
+              background: "rgba(201,168,76,0.08)",
+              border: "1px solid rgba(201,168,76,0.3)",
+              borderRadius: "8px",
+              padding: "10px 20px",
+              fontSize: "0.82rem",
+              color: "#8a6d20",
+              fontStyle: "italic",
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
+              <circle cx="8" cy="8" r="7.5" stroke="#c9a84c" strokeWidth="1.2"/>
+              <path d="M8 5v4M8 11v.5" stroke="#c9a84c" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+            The event program is subject to change. Final schedule will be confirmed closer to the event date.
+          </div>
+          <p style={{ fontSize: "0.78rem", color: "#8299b8", fontStyle: "italic", textAlign: "center" }}>
+            This competition must use only FIDA-approved official balls and FIDA rules.
+          </p>
+        </div>
       </div>
 
       <style>{`
         @media (max-width: 640px) {
-          .day-card > div:first-child { display: none; }
           .day-card { grid-template-columns: 1fr !important; }
         }
       `}</style>
