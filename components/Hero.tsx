@@ -15,27 +15,63 @@ export default function Hero() {
         paddingTop: "72px",
       }}
     >
-      {/* Full-bleed SVG illustration */}
+      {/* Hero background illustration */}
       <div
+        className="animate-fadeIn"
         style={{
           position: "absolute",
           inset: 0,
-          display: "flex",
-          alignItems: "flex-end",
-          justifyContent: "center",
           pointerEvents: "none",
           overflow: "hidden",
         }}
       >
-        <AstanaSkylineSVG />
+        {/* Left gradient — keeps text readable */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            zIndex: 2,
+            background:
+              "linear-gradient(to right, #f5f3ee 25%, rgba(245,243,238,0.6) 48%, rgba(245,243,238,0) 68%)",
+          }}
+        />
+        <div
+          className="animate-hero-float"
+          style={{
+            position: "absolute",
+            right: "-6%",
+            bottom: "-4%",
+            width: "78%",
+            aspectRatio: "1 / 1",
+            zIndex: 1,
+            /* Fade all four edges with a CSS mask */
+            maskImage:
+              "radial-gradient(ellipse 80% 85% at 65% 55%, black 30%, transparent 100%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 80% 85% at 65% 55%, black 30%, transparent 100%)",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/kdsfidachamp/hero-bg.png"
+            alt=""
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
+              objectPosition: "right bottom",
+              mixBlendMode: "multiply",
+            }}
+          />
+        </div>
       </div>
 
       {/* Ornament top-left */}
-      <div style={{ position: "absolute", top: 80, left: 0, opacity: 0.15, pointerEvents: "none" }}>
+      <div style={{ position: "absolute", top: 80, left: 0, opacity: 0.12, pointerEvents: "none", zIndex: 3 }}>
         <KazakhCornerOrnament />
       </div>
       {/* Ornament top-right */}
-      <div style={{ position: "absolute", top: 80, right: 0, opacity: 0.15, transform: "scaleX(-1)", pointerEvents: "none" }}>
+      <div style={{ position: "absolute", top: 80, right: 0, opacity: 0.12, transform: "scaleX(-1)", pointerEvents: "none", zIndex: 3 }}>
         <KazakhCornerOrnament />
       </div>
 
@@ -70,7 +106,8 @@ export default function Hero() {
               color: "#1a3370",
             }}
           >
-            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#c9a84c", display: "inline-block", animation: "blink 2.4s ease-in-out infinite" }} />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/kdsfidachamp/fida-logo.png" alt="FIDA" style={{ height: "18px", width: "auto", verticalAlign: "middle" }} />
             Official FIDA Event · June 1, 2026
           </span>
         </div>
@@ -196,356 +233,6 @@ export default function Hero() {
         />
       </div>
     </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* Astana skyline SVG                                                   */
-/* ------------------------------------------------------------------ */
-function AstanaSkylineSVG() {
-  return (
-    <svg
-      viewBox="0 0 1400 700"
-      preserveAspectRatio="xMidYMax meet"
-      style={{ width: "100%", maxHeight: "80vh", minHeight: "480px" }}
-      aria-hidden="true"
-    >
-      <defs>
-        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#eef2f8" stopOpacity="0" />
-          <stop offset="100%" stopColor="#d6e4f4" stopOpacity="0.35" />
-        </linearGradient>
-        <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#e8c96a" />
-          <stop offset="100%" stopColor="#c9a84c" />
-        </linearGradient>
-        <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#6b9fd4" stopOpacity="0.15" />
-          <stop offset="100%" stopColor="#6b9fd4" stopOpacity="0.04" />
-        </linearGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="3" result="blur" />
-          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-        </filter>
-        <radialGradient id="sphereGold" cx="40%" cy="35%" r="60%">
-          <stop offset="0%" stopColor="#f5e4a0" />
-          <stop offset="50%" stopColor="#e8c96a" />
-          <stop offset="100%" stopColor="#a07820" />
-        </radialGradient>
-        <radialGradient id="sphereBlue" cx="40%" cy="35%" r="60%">
-          <stop offset="0%" stopColor="rgba(107,159,212,0.3)" />
-          <stop offset="100%" stopColor="rgba(107,159,212,0.05)" />
-        </radialGradient>
-      </defs>
-
-      {/* Sky overlay */}
-      <rect x="0" y="0" width="1400" height="700" fill="url(#skyGrad)" />
-
-      {/* Cloud lines */}
-      <CloudLines />
-
-      {/* Background city silhouette */}
-      <CityBackground />
-
-      {/* KHAN SHATYR — left */}
-      <KhanShatyr x={220} y={680} />
-
-      {/* NUR ALEM — right */}
-      <NurAlem cx={1130} cy={530} r={110} />
-
-      {/* Additional building right side */}
-      <g opacity="0.4">
-        <rect x="1260" y="500" width="18" height="180" fill="none" stroke="#6b9fd4" strokeWidth="1" />
-        <rect x="1285" y="520" width="12" height="160" fill="none" stroke="#6b9fd4" strokeWidth="0.8" />
-        <rect x="1250" y="480" width="50" height="8" fill="none" stroke="#6b9fd4" strokeWidth="0.8" />
-      </g>
-
-      {/* BAITEREK — center */}
-      <Baiterek cx={700} baseY={680} />
-
-      {/* Floating drone balls */}
-      <g className="animate-float" style={{ transformOrigin: "420px 210px" }}>
-        <DroneBall cx={420} cy={210} r={52} />
-      </g>
-      <g className="animate-floatB" style={{ transformOrigin: "950px 175px" }}>
-        <DroneBall cx={950} cy={175} r={42} />
-      </g>
-      <g className="animate-float" style={{ animationDelay: "2s", transformOrigin: "300px 360px" }}>
-        <DroneBall cx={300} cy={360} r={28} />
-      </g>
-
-      {/* Gold accent lines */}
-      <GoldAccentLines />
-
-      {/* Bottom ground line */}
-      <line x1="0" y1="680" x2="1400" y2="680" stroke="#6b9fd4" strokeWidth="0.8" strokeOpacity="0.35" />
-    </svg>
-  );
-}
-
-function CloudLines() {
-  return (
-    <g opacity="0.35" stroke="#6b9fd4" strokeWidth="0.8" fill="none">
-      {/* Cloud 1 — top left */}
-      <path d="M 50 180 Q 100 165 150 175 Q 180 165 210 175 Q 240 165 270 178" />
-      <path d="M 80 195 Q 130 182 175 192" />
-      {/* Cloud 2 — top right */}
-      <path d="M 1100 130 Q 1150 116 1210 128 Q 1250 116 1300 130" />
-      <path d="M 1120 148 Q 1170 135 1230 146" />
-      {/* Sweeping arc lines */}
-      <path d="M 0 320 Q 350 260 700 290 Q 1050 320 1400 270" strokeWidth="0.5" opacity="0.5" />
-      <path d="M 0 370 Q 350 310 700 345 Q 1050 375 1400 320" strokeWidth="0.4" opacity="0.4" />
-    </g>
-  );
-}
-
-function CityBackground() {
-  return (
-    <g opacity="0.18" stroke="#6b9fd4" strokeWidth="1" fill="rgba(107,159,212,0.04)">
-      {/* Simple rectangular building silhouettes */}
-      {[
-        [60, 600, 30, 80], [95, 580, 25, 100], [125, 590, 35, 90],
-        [170, 570, 25, 110], [200, 600, 20, 80], [230, 565, 30, 115],
-        [1050, 580, 30, 100], [1085, 560, 25, 120], [1120, 595, 35, 85],
-        [1165, 570, 28, 110], [1200, 585, 22, 95],
-        [450, 620, 20, 60], [480, 600, 30, 80], [520, 610, 25, 70],
-        [820, 615, 20, 65], [845, 600, 28, 80], [880, 620, 22, 60],
-      ].map(([x, y, w, h], i) => (
-        <rect key={i} x={x} y={y - h} width={w} height={h} />
-      ))}
-    </g>
-  );
-}
-
-function KhanShatyr({ x, y }: { x: number; y: number }) {
-  const tipX = x;
-  const tipY = y - 420;
-  const leftBase = x - 110;
-  const rightBase = x + 110;
-
-  return (
-    <g opacity="0.75">
-      {/* Main tent body */}
-      <path
-        d={`M ${leftBase} ${y} Q ${leftBase + 30} ${y - 200} ${tipX} ${tipY}`}
-        fill="none"
-        stroke="#6b9fd4"
-        strokeWidth="1.5"
-      />
-      <path
-        d={`M ${rightBase} ${y} Q ${rightBase - 30} ${y - 200} ${tipX} ${tipY}`}
-        fill="none"
-        stroke="#6b9fd4"
-        strokeWidth="1.5"
-      />
-      {/* Fill */}
-      <path
-        d={`M ${leftBase} ${y} Q ${leftBase + 30} ${y - 200} ${tipX} ${tipY} Q ${rightBase - 30} ${y - 200} ${rightBase} ${y} Z`}
-        fill="url(#blueGrad)"
-        stroke="none"
-      />
-      {/* Cable lines */}
-      {[0.2, 0.4, 0.6, 0.8].map((t, i) => {
-        const ly = y - t * 420;
-        const spread = (1 - t) * 110;
-        return (
-          <line
-            key={i}
-            x1={tipX - spread * 0.95}
-            y1={ly + 4}
-            x2={tipX + spread * 0.95}
-            y2={ly + 4}
-            stroke="#6b9fd4"
-            strokeWidth="0.7"
-            strokeOpacity="0.5"
-          />
-        );
-      })}
-      {/* Mast above tip */}
-      <line x1={tipX} y1={tipY} x2={tipX} y2={tipY - 50} stroke="#6b9fd4" strokeWidth="2" />
-      <circle cx={tipX} cy={tipY - 55} r={5} fill="#c9a84c" />
-      {/* Base platform */}
-      <rect x={leftBase - 10} y={y - 12} width={220 + 20} height={12} fill="none" stroke="#6b9fd4" strokeWidth="1" />
-    </g>
-  );
-}
-
-function NurAlem({ cx, cy, r }: { cx: number; cy: number; r: number }) {
-  return (
-    <g opacity="0.8">
-      {/* Main sphere */}
-      <circle cx={cx} cy={cy} r={r} fill="url(#sphereBlue)" stroke="#6b9fd4" strokeWidth="1.5" />
-      {/* Horizontal rings */}
-      {[-0.5, 0, 0.5].map((t, i) => {
-        const ry = Math.sqrt(1 - t * t) * r * 0.4;
-        const rx = Math.sqrt(1 - t * t) * r;
-        return (
-          <ellipse
-            key={i}
-            cx={cx}
-            cy={cy + t * r}
-            rx={rx}
-            ry={ry}
-            fill="none"
-            stroke="#6b9fd4"
-            strokeWidth="0.7"
-            strokeOpacity="0.6"
-          />
-        );
-      })}
-      {/* Vertical arcs */}
-      {[-0.5, 0, 0.5].map((t, i) => (
-        <ellipse
-          key={i}
-          cx={cx + t * r * 0.5}
-          cy={cy}
-          rx={Math.sqrt(1 - t * t * 0.25) * r * 0.4}
-          ry={r}
-          fill="none"
-          stroke="#6b9fd4"
-          strokeWidth="0.7"
-          strokeOpacity="0.5"
-          transform={`rotate(${t * 30} ${cx} ${cy})`}
-        />
-      ))}
-      {/* Equatorial ring highlight */}
-      <ellipse cx={cx} cy={cy} rx={r * 1.1} ry={r * 0.12} fill="none" stroke="#c9a84c" strokeWidth="1.2" strokeOpacity="0.5" />
-      {/* Support tower */}
-      <line x1={cx} y1={cy + r} x2={cx} y2={cy + r + 50} stroke="#6b9fd4" strokeWidth="3" />
-      <rect x={cx - 60} y={cy + r + 48} width={120} height={10} fill="none" stroke="#6b9fd4" strokeWidth="1.2" />
-      {/* Flag/antenna */}
-      <line x1={cx} y1={cy - r} x2={cx} y2={cy - r - 20} stroke="#c9a84c" strokeWidth="1.5" />
-    </g>
-  );
-}
-
-function Baiterek({ cx, baseY }: { cx: number; baseY: number }) {
-  const sphereY = baseY - 300;
-  const tipY = baseY - 560;
-
-  return (
-    <g>
-      {/* Base legs */}
-      <path
-        d={`M ${cx - 90} ${baseY} Q ${cx - 60} ${baseY - 150} ${cx - 12} ${sphereY + 55}`}
-        fill="none"
-        stroke="#6b9fd4"
-        strokeWidth="10"
-        strokeLinecap="round"
-        opacity="0.7"
-      />
-      <path
-        d={`M ${cx + 90} ${baseY} Q ${cx + 60} ${baseY - 150} ${cx + 12} ${sphereY + 55}`}
-        fill="none"
-        stroke="#6b9fd4"
-        strokeWidth="10"
-        strokeLinecap="round"
-        opacity="0.7"
-      />
-      {/* Cross-braces */}
-      {[0.3, 0.6].map((t, i) => {
-        const y = baseY - t * (baseY - sphereY - 55);
-        const spread = (1 - t) * 78;
-        return (
-          <line key={i} x1={cx - spread} y1={y} x2={cx + spread} y2={y}
-            stroke="#6b9fd4" strokeWidth="1" strokeOpacity="0.4" />
-        );
-      })}
-      {/* Main column (below sphere) */}
-      <rect x={cx - 7} y={sphereY + 55} width={14} height={baseY - sphereY - 55} fill="#6b9fd4" opacity="0.2" />
-      {/* Sphere */}
-      <circle cx={cx} cy={sphereY} r={52} fill="url(#sphereGold)" filter="url(#glow)" opacity="0.9" />
-      <circle cx={cx} cy={sphereY} r={52} fill="none" stroke="#c9a84c" strokeWidth="2" />
-      {/* Sphere latitude lines */}
-      <ellipse cx={cx} cy={sphereY} rx={52} ry={18} fill="none" stroke="#a07820" strokeWidth="0.8" strokeOpacity="0.6" />
-      <ellipse cx={cx} cy={sphereY - 18} rx={42} ry={12} fill="none" stroke="#a07820" strokeWidth="0.6" strokeOpacity="0.4" />
-      {/* Main column (above sphere) */}
-      <line x1={cx} y1={sphereY - 52} x2={cx} y2={tipY + 40} stroke="#6b9fd4" strokeWidth="6" strokeLinecap="round" opacity="0.75" />
-      {/* BRANCHES — 5 symmetric arms */}
-      {[
-        { angle: -90, len: 120, thick: 4 }, // center top
-        { angle: -65, len: 100, thick: 3.5 },
-        { angle: -115, len: 100, thick: 3.5 },
-        { angle: -45, len: 80, thick: 2.5 },
-        { angle: -135, len: 80, thick: 2.5 },
-      ].map(({ angle, len, thick }, i) => {
-        const startY = sphereY - 45 - i * 4;
-        const rad = (angle * Math.PI) / 180;
-        const ex = cx + len * Math.cos(rad);
-        const ey = startY + len * Math.sin(rad);
-        // Slight curve
-        const mx = cx + (len * 0.5) * Math.cos(rad) + (i < 2 ? 8 : -8) * Math.cos(rad + Math.PI / 2);
-        const my = startY + (len * 0.5) * Math.sin(rad);
-        return (
-          <g key={i}>
-            <path
-              d={`M ${cx} ${startY} Q ${mx} ${my} ${ex} ${ey}`}
-              fill="none"
-              stroke="#6b9fd4"
-              strokeWidth={thick}
-              strokeLinecap="round"
-              opacity="0.8"
-            />
-            {/* Tip globe */}
-            <circle cx={ex} cy={ey} r={6} fill="#c9a84c" opacity="0.9" />
-          </g>
-        );
-      })}
-      {/* Needle above branches */}
-      <line x1={cx} y1={tipY + 40} x2={cx} y2={tipY} stroke="#c9a84c" strokeWidth="3" strokeLinecap="round" opacity="0.9" />
-      <circle cx={cx} cy={tipY - 4} r={5} fill="#c9a84c" opacity="0.95" />
-    </g>
-  );
-}
-
-function DroneBall({ cx, cy, r }: { cx: number; cy: number; r: number }) {
-  return (
-    <g>
-      {/* Outer sphere */}
-      <circle cx={cx} cy={cy} r={r} fill="none" stroke="#6b9fd4" strokeWidth="1.8" opacity="0.85" />
-      {/* Horizontal ring */}
-      <ellipse cx={cx} cy={cy} rx={r} ry={r * 0.35} fill="none" stroke="#6b9fd4" strokeWidth="1.2" opacity="0.6" />
-      {/* Vertical ring */}
-      <ellipse cx={cx} cy={cy} rx={r * 0.35} ry={r} fill="none" stroke="#6b9fd4" strokeWidth="1.2" opacity="0.6" />
-      {/* Drone body (X shape) */}
-      <line x1={cx - r * 0.4} y1={cy - r * 0.1} x2={cx + r * 0.4} y2={cy + r * 0.1} stroke="#c9a84c" strokeWidth="1.5" opacity="0.9" />
-      <line x1={cx - r * 0.4} y1={cy + r * 0.1} x2={cx + r * 0.4} y2={cy - r * 0.1} stroke="#c9a84c" strokeWidth="1.5" opacity="0.9" />
-      {/* Rotor circles */}
-      {[
-        [-0.38, -0.08],
-        [0.38, 0.08],
-        [-0.38, 0.08],
-        [0.38, -0.08],
-      ].map(([dx, dy], i) => (
-        <circle
-          key={i}
-          cx={cx + dx * r}
-          cy={cy + dy * r}
-          r={r * 0.14}
-          fill="none"
-          stroke="#c9a84c"
-          strokeWidth="1.2"
-          opacity="0.85"
-        />
-      ))}
-      {/* Center body */}
-      <circle cx={cx} cy={cy} r={r * 0.1} fill="#c9a84c" opacity="0.8" />
-      {/* Inner sphere glow */}
-      <circle cx={cx} cy={cy} r={r * 0.7} fill="rgba(107,159,212,0.06)" />
-    </g>
-  );
-}
-
-function GoldAccentLines() {
-  return (
-    <g fill="none" stroke="#c9a84c" strokeOpacity="0.2" strokeWidth="1">
-      {/* Flowing curves */}
-      <path d="M 0 450 Q 200 380 400 420 Q 600 460 800 400 Q 1000 340 1200 390 Q 1350 415 1400 400" />
-      <path d="M 0 470 Q 300 400 600 440 Q 900 480 1200 430 Q 1350 410 1400 420" />
-      {/* Corner ornament lines top-right */}
-      <path d="M 1350 100 Q 1380 130 1370 160 Q 1360 180 1380 200" strokeOpacity="0.15" />
-      <path d="M 1370 90 Q 1400 120 1390 155" strokeOpacity="0.12" />
-    </g>
   );
 }
 
