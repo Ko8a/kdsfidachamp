@@ -122,7 +122,7 @@ export default function Venue() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2rem" }}>
               {[
-                { icon: "🏙️", label: "City", value: "Astana (Nur-Sultan)" },
+                { icon: "🏙️", label: "City", value: "Astana" },
                 { icon: "🌍", label: "Country", value: "Republic of Kazakhstan" },
                 { icon: "📅", label: "Date", value: "June 1, 2026" },
                 { icon: "📍", label: "Venue", value: "To be announced" },
