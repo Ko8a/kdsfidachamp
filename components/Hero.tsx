@@ -36,7 +36,7 @@ export default function Hero() {
           }}
         />
         <div
-          className="animate-hero-float"
+          className="animate-hero-float hero-bg-wrap"
           style={{
             position: "absolute",
             right: "-6%",
@@ -67,16 +67,17 @@ export default function Hero() {
       </div>
 
       {/* Ornament top-left */}
-      <div style={{ position: "absolute", top: 80, left: 0, opacity: 0.12, pointerEvents: "none", zIndex: 3 }}>
+      <div className="hero-ornament" style={{ position: "absolute", top: 80, left: 0, opacity: 0.12, pointerEvents: "none", zIndex: 3 }}>
         <KazakhCornerOrnament />
       </div>
       {/* Ornament top-right */}
-      <div style={{ position: "absolute", top: 80, right: 0, opacity: 0.12, transform: "scaleX(-1)", pointerEvents: "none", zIndex: 3 }}>
+      <div className="hero-ornament" style={{ position: "absolute", top: 80, right: 0, opacity: 0.12, transform: "scaleX(-1)", pointerEvents: "none", zIndex: 3 }}>
         <KazakhCornerOrnament />
       </div>
 
       {/* Content */}
       <div
+        className="hero-content"
         style={{
           position: "relative",
           zIndex: 10,

@@ -288,9 +288,109 @@ body {
   transform: translateY(-4px);
 }
 
+/* ============================================================
+   MOBILE — 768px and below
+   ============================================================ */
 @media (max-width: 768px) {
   .btn-navy, .btn-gold, .btn-outline-navy {
     padding: 12px 20px;
     font-size: 0.7rem;
   }
+
+  /* --- Section padding --- */
+  section {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* --- Hero --- */
+  #hero {
+    padding-top: 72px !important;
+    min-height: 100svh !important;
+  }
+  .hero-bg-wrap  { display: none !important; }
+  .hero-ornament { display: none !important; }
+  .hero-content  {
+    padding-top: 2.5rem !important;
+    padding-bottom: 4rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* --- About --- */
+  #about > div > div { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+
+  /* --- Program --- */
+  .day-card {
+    grid-template-columns: 1fr !important;
+    padding: 1.25rem !important;
+  }
+  .day-card > div:first-child { display: none !important; }
+
+  /* --- Highlights grid --- */
+  #highlights > div > div:nth-child(3) { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* --- Venue --- */
+  #venue > div > div:last-child { grid-template-columns: 1fr !important; }
+
+  /* --- Hotels --- */
+  #hotels > div > div:nth-child(3) { grid-template-columns: repeat(2, 1fr) !important; }
+  #hotels > div > div:nth-child(4) { grid-template-columns: 1fr !important; max-width: 100% !important; }
+
+  /* --- Attractions --- */
+  .attractions-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* --- Partners --- */
+  #partners > div > div:nth-child(3) { grid-template-columns: 1fr !important; }
+  #partners > div > div:nth-child(3) > div:nth-child(2) {
+    height: 1px !important;
+    width: 80% !important;
+    margin: 0 auto;
+  }
+
+  /* --- CTA --- */
+  .cta-card { padding: 2.5rem 1.5rem !important; }
+  .cta-contacts {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.25rem !important;
+  }
+
+  /* --- Footer --- */
+  footer > div > div:first-child { grid-template-columns: 1fr 1fr !important; }
+}
+
+/* ============================================================
+   SMALL MOBILE — 480px and below
+   ============================================================ */
+@media (max-width: 480px) {
+  /* --- Highlights grid → 1 col --- */
+  #highlights > div > div:nth-child(3) { grid-template-columns: 1fr !important; }
+
+  /* --- Hotels → 1 col --- */
+  #hotels > div > div:nth-child(3) { grid-template-columns: 1fr !important; }
+
+  /* --- Attractions → 1 col --- */
+  .attractions-grid { grid-template-columns: 1fr !important; }
+
+  /* --- Hero CTA buttons → full width --- */
+  .hero-content > div:last-of-type {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .hero-content > div:last-of-type > a {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* --- Footer → 1 col --- */
+  footer > div > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* --- CTA card padding --- */
+  .cta-card { padding: 2rem 1.25rem !important; border-radius: 12px !important; }
 }

@@ -39,6 +39,7 @@ export default function CTA() {
       <div style={{ maxWidth: "900px", margin: "0 auto", position: "relative" }}>
         {/* Main CTA block */}
         <div
+          className="cta-card"
           style={{
             background: "linear-gradient(160deg, #0d1f4e 0%, #1a3370 60%, #0d2960 100%)",
             borderRadius: "16px",
@@ -162,6 +163,7 @@ export default function CTA() {
 
           {/* Contact info row */}
           <div
+            className="cta-contacts"
             style={{
               display: "flex",
               gap: "2rem",
