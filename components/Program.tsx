@@ -285,7 +285,6 @@ export default function Program() {
 
       <style>{`
         @media (max-width: 640px) {
-          .day-card > div:first-child { display: none; }
           .day-card { grid-template-columns: 1fr !important; }
         }
       `}</style>
