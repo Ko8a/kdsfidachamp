@@ -330,7 +330,7 @@ body {
   /* --- About --- */
   #about > div > div { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
 
-  /* --- Program: collapse to 1-col, keep date visible as a top row --- */
+  /* --- Program: collapse to 1-col, date row visible above content --- */
   #program > div:first-child { display: none !important; } /* hide center decorative line */
   .day-card {
     grid-template-columns: 1fr !important;
@@ -339,19 +339,19 @@ body {
     flex-direction: column !important;
     gap: 0.75rem !important;
   }
-  .day-card > div:first-child {
+  .day-date-col {
     display: flex !important;
-    flex-direction: row !important;
     align-items: center !important;
-    gap: 0.75rem !important;
+    gap: 0.5rem !important;
     padding-bottom: 0.75rem !important;
     border-bottom: 1px solid rgba(107,159,212,0.15) !important;
   }
-  .day-card > div:first-child > div {
+  .day-date-inner {
+    display: flex !important;
     flex-direction: row !important;
     flex-wrap: wrap !important;
     align-items: center !important;
-    gap: 6px !important;
+    gap: 6px 12px !important;
   }
 
   /* --- Highlights grid: 2-col (grid is nth-child(2) of content wrapper) --- */

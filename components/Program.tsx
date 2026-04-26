@@ -144,8 +144,9 @@ export default function Program() {
               }}
             >
               {/* Date column */}
-              <div>
+              <div className="day-date-col">
                 <div
+                  className="day-date-inner"
                   style={{
                     display: "inline-flex",
                     flexDirection: "column",
