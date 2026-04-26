@@ -53,7 +53,7 @@ export default function Hero() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/kdsfidachamp/hero-bg.png"
+            src="/hero-bg.png"
             alt=""
             style={{
               width: "100%",
@@ -107,7 +107,7 @@ export default function Hero() {
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/kdsfidachamp/fida-logo.png" alt="FIDA" style={{ height: "18px", width: "auto", verticalAlign: "middle" }} />
+            <img src="/fida-logo.png" alt="FIDA" style={{ height: "18px", width: "auto", verticalAlign: "middle" }} />
             Official FIDA Event · June 1, 2026
           </span>
         </div>

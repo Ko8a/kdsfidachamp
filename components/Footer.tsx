@@ -60,7 +60,7 @@ export default function Footer() {
             <div style={{ marginBottom: "1.25rem" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/kdsfidachamp/kds-logo-small.png"
+                src="/kds-logo-small.png"
                 alt="KDS Logo"
                 style={{ height: "56px", width: "auto", filter: "brightness(0) invert(1)", opacity: 0.85 }}
               />
