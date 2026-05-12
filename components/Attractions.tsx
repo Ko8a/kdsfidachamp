@@ -1,44 +1,12 @@
 "use client";
-
-const attractions = [
-  {
-    name: "Baiterek",
-    subtitle: "Symbol of Astana",
-    desc: "The iconic 105-meter monument tower with a golden observation sphere — the definitive symbol of modern Astana and Kazakhstan's aspirations.",
-    color: "#c9a84c",
-    photo: "/place-baiterek.jpg",
-  },
-  {
-    name: "Khan Shatyr",
-    subtitle: "World's Largest Tent",
-    desc: "A monumental transparent tent structure covering 140,000 m² — housing a shopping center, beach resort, and entertainment complex.",
-    color: "#6b9fd4",
-    photo: "/place-khanshatyr.jpg",
-  },
-  {
-    name: "Nur Alem / EXPO",
-    subtitle: "Sphere of Future",
-    desc: "The world's largest spherical building, built for EXPO 2017 in Astana. Now a museum of future energy and sustainable technology.",
-    color: "#6b9fd4",
-    photo: "/place-nuralem.jpg",
-  },
-  {
-    name: "Palace of Peace & Reconciliation",
-    subtitle: "Pyramid of Harmony",
-    desc: "A stunning 62-meter glass pyramid by Norman Foster, hosting the Congress of World and Traditional Religions — a masterpiece of architecture.",
-    color: "#c9a84c",
-    photo: "/place-pyramid.jpg",
-  },
-  {
-    name: "National Museum",
-    subtitle: "Kazakhstan's Story",
-    desc: "The largest museum in Central Asia, showcasing over 44,000 artefacts spanning Kazakhstan's history from ancient times to the present.",
-    color: "#6b9fd4",
-    photo: "/place-museum.jpg",
-  },
-];
+import { useLang } from "@/lib/i18n";
 
 export default function Attractions() {
+  const { t } = useLang();
+
+  const PHOTOS = ["/place-baiterek.jpg","/place-khanshatyr.jpg","/place-nuralem.jpg","/place-pyramid.jpg","/place-museum.jpg"];
+  const places = t.attractions.places.map((p, i) => ({ ...p, photo: PHOTOS[i] }));
+
   return (
     <section
       id="astana"
@@ -93,7 +61,7 @@ export default function Attractions() {
         <div style={{ textAlign: "center", marginBottom: "4rem" }}>
           <div className="section-sep-center" />
           <p style={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#c9a84c", marginBottom: "0.75rem" }}>
-            Discover Kazakhstan
+            {t.attractions.label}
           </p>
           <h2
             style={{
@@ -105,10 +73,10 @@ export default function Attractions() {
               marginBottom: "1rem",
             }}
           >
-            Discover Astana
+            {t.attractions.title}
           </h2>
           <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.6)", maxWidth: "480px", margin: "0 auto" }}>
-            Beyond the championship — explore one of the world's most extraordinary modern capitals.
+            {t.attractions.subtitle}
           </p>
         </div>
 
@@ -121,7 +89,7 @@ export default function Attractions() {
             marginBottom: "1.5rem",
           }}
         >
-          {attractions.slice(0, 3).map((a) => (
+          {places.slice(0, 3).map((a) => (
             <AttractionCard key={a.name} attraction={a} />
           ))}
         </div>
@@ -134,7 +102,7 @@ export default function Attractions() {
             margin: "0 auto",
           }}
         >
-          {attractions.slice(3).map((a) => (
+          {places.slice(3).map((a) => (
             <AttractionCard key={a.name} attraction={a} />
           ))}
         </div>
@@ -154,7 +122,16 @@ export default function Attractions() {
   );
 }
 
-function AttractionCard({ attraction }: { attraction: (typeof attractions)[0] }) {
+type AttractionEntry = {
+  name: string;
+  subtitle: string;
+  desc: string;
+  photo: string;
+  color?: string;
+};
+
+function AttractionCard({ attraction }: { attraction: AttractionEntry }) {
+  const color = (attraction as { color?: string }).color ?? "#6b9fd4";
   return (
     <div
       className="attraction-card"
@@ -186,7 +163,7 @@ function AttractionCard({ attraction }: { attraction: (typeof attractions)[0] })
         {/* Dark overlay so the card stays consistent with the dark section */}
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(13,31,78,0.75) 0%, rgba(13,31,78,0.15) 60%, transparent 100%)" }} />
         {/* Color accent bar at bottom */}
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "3px", background: attraction.color, opacity: 0.8 }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "3px", background: color, opacity: 0.8 }} />
       </div>
 
       <div style={{ padding: "1.5rem" }}>
@@ -196,7 +173,7 @@ function AttractionCard({ attraction }: { attraction: (typeof attractions)[0] })
             fontWeight: 700,
             letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: attraction.color,
+            color: color,
             marginBottom: "6px",
           }}
         >
@@ -212,4 +189,3 @@ function AttractionCard({ attraction }: { attraction: (typeof attractions)[0] })
     </div>
   );
 }
-

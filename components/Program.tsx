@@ -1,78 +1,13 @@
 "use client";
-
-const days = [
-  {
-    date: "May 29",
-    day: "Thursday",
-    label: "Day 0",
-    title: "Arrival & Check-in",
-    color: "#6b9fd4",
-    featured: false,
-    items: [
-      "Arrival of international delegations",
-      "Hotel check-in and accreditation",
-      "Welcome reception & briefing",
-    ],
-  },
-  {
-    date: "May 30",
-    day: "Friday",
-    label: "Day 1",
-    title: "Training Day",
-    color: "#6b9fd4",
-    featured: false,
-    items: [
-      "Train of Trainers — workshop for local coaches",
-      "Cultural program for international guests",
-      "Astana city tour",
-      "Technical inspection of equipment",
-    ],
-  },
-  {
-    date: "May 31",
-    day: "Saturday",
-    label: "Day 2",
-    title: "Practice & Qualifications",
-    color: "#6b9fd4",
-    featured: false,
-    items: [
-      "Morning: Free practice sessions",
-      "Afternoon: Qualification rounds",
-      "Evening: Team dinner & networking",
-    ],
-  },
-  {
-    date: "June 1",
-    day: "Sunday",
-    label: "Main Day",
-    title: "Championship Day",
-    color: "#c9a84c",
-    featured: true,
-    items: [
-      "Opening Ceremony",
-      "National Team Championship matches",
-      "Club Championship — Class 40 & Class 20",
-      "Youth Demonstration Matches",
-      "Public Experience Zone",
-      "Award & Closing Ceremony",
-    ],
-  },
-  {
-    date: "June 2",
-    day: "Monday",
-    label: "Day 4",
-    title: "Departure Day",
-    color: "#6b9fd4",
-    featured: false,
-    items: [
-      "Cultural program for international guests",
-      "Farewell breakfast",
-      "Checkout & departure of delegations",
-    ],
-  },
-];
+import { useLang } from "@/lib/i18n";
 
 export default function Program() {
+  const { t } = useLang();
+
+  const COLORS = ["#6b9fd4", "#6b9fd4", "#6b9fd4", "#c9a84c", "#6b9fd4"];
+  const FEATURED = [false, false, false, true, false];
+  const days = t.program.days.map((d, i) => ({ ...d, color: COLORS[i], featured: FEATURED[i] }));
+
   return (
     <section
       id="program"
@@ -102,7 +37,7 @@ export default function Program() {
         <div style={{ textAlign: "center", marginBottom: "4rem" }}>
           <div className="section-sep-center" />
           <p style={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#6b9fd4", marginBottom: "0.75rem" }}>
-            Event Schedule
+            {t.program.label}
           </p>
           <h2
             style={{
@@ -114,10 +49,10 @@ export default function Program() {
               marginBottom: "1rem",
             }}
           >
-            Event Program
+            {t.program.title}
           </h2>
           <p style={{ fontSize: "1rem", color: "#6b7a99", maxWidth: "500px", margin: "0 auto" }}>
-            Five days of competition, culture, and connection — May 29 to June 2, 2026.
+            {t.program.subtitle}
           </p>
         </div>
 
@@ -168,7 +103,7 @@ export default function Program() {
                         display: "inline-block",
                       }}
                     >
-                      ★ Main Day
+                      {t.program.mainDay}
                     </span>
                   )}
                   <span
@@ -265,7 +200,7 @@ export default function Program() {
             fontStyle: "italic",
           }}
         >
-          This competition must use only FIDA-approved official balls and FIDA rules.
+          {t.program.note}
         </p>
       </div>
 

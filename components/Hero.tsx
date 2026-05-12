@@ -1,7 +1,9 @@
 "use client";
 import { openRegistrationModal } from "./RegistrationModal";
+import { useLang } from "@/lib/i18n";
 
 export default function Hero() {
+  const { t } = useLang();
   return (
     <section
       id="hero"
@@ -109,7 +111,7 @@ export default function Hero() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/fida-logo.png" alt="FIDA" style={{ height: "18px", width: "auto", verticalAlign: "middle" }} />
-            Official FIDA Event · June 1, 2026
+            {t.hero.badge}
           </span>
         </div>
 
@@ -126,11 +128,11 @@ export default function Hero() {
             marginBottom: "1.5rem",
           }}
         >
-          Astana FIDA
+          {t.hero.title1}
           <br />
-          <span className="text-gold-shimmer">Drone Soccer</span>
+          <span className="text-gold-shimmer">{t.hero.title2}</span>
           <br />
-          Championship 2026
+          {t.hero.title3}
         </h1>
 
         {/* Subtitle */}
@@ -145,8 +147,7 @@ export default function Hero() {
             lineHeight: 1.7,
           }}
         >
-          International drone soccer tournament under FIDA rules — where
-          sport, technology and Kazakh culture meet in the heart of Astana.
+          {t.hero.subtitle}
         </p>
 
         {/* Meta pills */}
@@ -155,9 +156,9 @@ export default function Hero() {
           style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginBottom: "2.5rem" }}
         >
           {[
-            { icon: "📅", text: "June 1, 2026" },
-            { icon: "📍", text: "Astana, Kazakhstan" },
-            { icon: "🌐", text: "International Competition" },
+            { icon: "📅", text: t.hero.date },
+            { icon: "📍", text: t.hero.location },
+            { icon: "🌐", text: t.hero.intl },
           ].map(({ icon, text }) => (
             <div
               key={text}
@@ -194,13 +195,13 @@ export default function Hero() {
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M8 1L15 8L8 15M1 8H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            Register Now
+            {t.hero.register}
           </button>
           <a href="#program" className="btn-outline-navy">
-            Event Program
+            {t.hero.program}
           </a>
           <a href="#contact" className="btn-navy" style={{ background: "transparent", border: "1.5px solid rgba(13,31,78,0.3)", color: "#0d1f4e" }}>
-            Contact Organizers
+            {t.hero.contact}
           </a>
         </div>
       </div>
@@ -221,7 +222,7 @@ export default function Hero() {
         }}
       >
         <span style={{ fontSize: "0.65rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#3a5080", fontWeight: 600 }}>
-          Scroll
+          {t.hero.scroll}
         </span>
         <div
           style={{

@@ -1,3 +1,4 @@
+import { LangProvider } from "@/lib/i18n";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -13,7 +14,7 @@ import RegistrationModal from "@/components/RegistrationModal";
 
 export default function Home() {
   return (
-    <>
+    <LangProvider>
       <Header />
       <main>
         <Hero />
@@ -28,6 +29,6 @@ export default function Home() {
       </main>
       <Footer />
       <RegistrationModal />
-    </>
+    </LangProvider>
   );
 }
