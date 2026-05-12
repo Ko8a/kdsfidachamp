@@ -16,7 +16,7 @@ const navHrefs = [
 const langOptions: { code: "en" | "ru" | "kk"; label: string }[] = [
   { code: "en", label: "EN" },
   { code: "ru", label: "RU" },
-  { code: "kk", label: "ҚЗ" },
+  { code: "kk", label: "KZ" },
 ];
 
 export default function Header() {

@@ -47,7 +47,8 @@ export default function RegistrationCountdown() {
           ? "linear-gradient(90deg, #0d1f4e 0%, #1a3370 50%, #0d1f4e 100%)"
           : "linear-gradient(90deg, #3a5080 0%, #6b7a99 100%)",
         color: "#fff",
-        padding: "0.6rem 2rem",
+        height: "44px",
+        padding: "0 2rem",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
