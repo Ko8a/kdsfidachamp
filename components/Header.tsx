@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { openRegistrationModal } from "./RegistrationModal";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -64,15 +65,13 @@ export default function Header() {
               {item.label}
             </a>
           ))}
-          <a
-            href="https://forms.gle/eVFWM75XRVicQgrj6"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={openRegistrationModal}
             className="btn-gold"
-            style={{ padding: "8px 18px", fontSize: "0.7rem" }}
+            style={{ padding: "8px 18px", fontSize: "0.7rem", cursor: "pointer" }}
           >
             Register Now
-          </a>
+          </button>
         </nav>
 
         {/* Mobile hamburger */}
@@ -137,15 +136,13 @@ export default function Header() {
               {item.label}
             </a>
           ))}
-          <a
-            href="https://forms.gle/eVFWM75XRVicQgrj6"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => { setMenuOpen(false); openRegistrationModal(); }}
             className="btn-gold"
-            style={{ alignSelf: "flex-start" }}
+            style={{ alignSelf: "flex-start", cursor: "pointer" }}
           >
             Register Now
-          </a>
+          </button>
         </div>
       )}
 

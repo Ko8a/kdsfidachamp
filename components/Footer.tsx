@@ -1,4 +1,5 @@
 "use client";
+import { openRegistrationModal } from "./RegistrationModal";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -186,15 +187,13 @@ export default function Footer() {
             ))}
 
             <div style={{ marginTop: "1.25rem" }}>
-              <a
-                href="https://forms.gle/eVFWM75XRVicQgrj6"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={openRegistrationModal}
                 className="btn-gold"
-                style={{ padding: "10px 18px", fontSize: "0.7rem" }}
+                style={{ padding: "10px 18px", fontSize: "0.7rem", cursor: "pointer" }}
               >
                 Register →
-              </a>
+              </button>
             </div>
           </div>
         </div>
