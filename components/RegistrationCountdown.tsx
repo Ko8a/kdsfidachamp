@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useLang } from "@/lib/i18n";
 import { openRegistrationModal } from "./RegistrationModal";
 
@@ -36,27 +36,34 @@ export default function RegistrationCountdown() {
     return () => clearInterval(id);
   }, []);
 
-  if (!mounted) return null;
+  const bannerBase: React.CSSProperties = {
+    position: "sticky",
+    top: 0,
+    height: "44px",
+    zIndex: 110,
+    borderBottom: "1px solid rgba(201,168,76,0.3)",
+  };
+
+  if (!mounted) return (
+    <div style={{ ...bannerBase, background: "linear-gradient(90deg, #0d1f4e 0%, #1a3370 50%, #0d1f4e 100%)" }} />
+  );
 
   const isOpen = timeLeft !== null;
 
   return (
     <div
       style={{
+        ...bannerBase,
         background: isOpen
           ? "linear-gradient(90deg, #0d1f4e 0%, #1a3370 50%, #0d1f4e 100%)"
           : "linear-gradient(90deg, #3a5080 0%, #6b7a99 100%)",
         color: "#fff",
-        height: "44px",
         padding: "0 2rem",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         gap: "1.5rem",
         flexWrap: "wrap",
-        position: "relative",
-        zIndex: 110,
-        borderBottom: "1px solid rgba(201,168,76,0.3)",
       }}
     >
       {isOpen ? (
