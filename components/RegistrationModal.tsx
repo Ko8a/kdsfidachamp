@@ -1,5 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useLang } from "@/lib/i18n";
+import { isTeamRegOpen } from "./RegistrationCountdown";
 
 const LINKS = {
   guest: {
@@ -17,39 +19,37 @@ export function openRegistrationModal() {
   window.dispatchEvent(new Event("openRegistrationModal"));
 }
 
-const OPTIONS = [
-  {
-    key: "guest" as const,
-    icon: "👥",
-    label: "Guest",
-    desc: "Attend the championship as a spectator or guest",
-    color: "#6b9fd4",
-  },
-  {
-    key: "media" as const,
-    icon: "📷",
-    label: "Media",
-    desc: "Register as press or media representative",
-    color: "#c9a84c",
-  },
-  {
-    key: "participant" as const,
-    icon: "🏆",
-    label: "Participant",
-    desc: "Register your team to compete in the championship",
-    color: "#0d1f4e",
-  },
-];
-
 export default function RegistrationModal() {
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState<"en" | "ru">("en");
   const [hovered, setHovered] = useState<string | null>(null);
+  const { lang, t } = useLang();
+  const teamRegOpen = isTeamRegOpen();
+
+  const OPTIONS = [
+    {
+      key: "guest" as const,
+      icon: "👥",
+      label: t.registration.guest,
+      desc: t.registration.guestDesc,
+      color: "#6b9fd4",
+    },
+    {
+      key: "media" as const,
+      icon: "📷",
+      label: t.registration.media,
+      desc: t.registration.mediaDesc,
+      color: "#c9a84c",
+    },
+    {
+      key: "participant" as const,
+      icon: "🏆",
+      label: t.registration.participant,
+      desc: t.registration.participantDesc,
+      color: "#0d1f4e",
+    },
+  ];
 
   useEffect(() => {
-    const nav = navigator.language || "en";
-    if (nav.startsWith("ru") || nav.startsWith("kk")) setLang("ru");
-
     const handler = () => setOpen(true);
     window.addEventListener("openRegistrationModal", handler);
     return () => window.removeEventListener("openRegistrationModal", handler);
@@ -59,7 +59,8 @@ export default function RegistrationModal() {
 
   function getLink(key: "guest" | "media" | "participant") {
     if (key === "participant") return LINKS.participant;
-    return LINKS[key][lang];
+    const l = lang === "kk" ? "ru" : lang;
+    return LINKS[key][l];
   }
 
   return (
@@ -112,17 +113,53 @@ export default function RegistrationModal() {
         {/* Header */}
         <div style={{ marginBottom: "0.5rem" }}>
           <p style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#6b9fd4", marginBottom: "0.4rem" }}>
-            Registration
+            {t.registration.label}
           </p>
           <h2 style={{ fontSize: "1.4rem", fontWeight: 900, color: "#0d1f4e", lineHeight: 1.15, letterSpacing: "-0.01em" }}>
-            Choose your category
+            {t.registration.title}
           </h2>
         </div>
         <div style={{ width: "40px", height: "2px", background: "linear-gradient(90deg, #c9a84c, #6b9fd4)", marginBottom: "1.75rem", borderRadius: "2px" }} />
 
         {/* Options */}
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-          {OPTIONS.map((opt) => (
+          {OPTIONS.map((opt) => {
+            const isParticipantClosed = opt.key === "participant" && !teamRegOpen;
+            if (isParticipantClosed) {
+              return (
+                <div
+                  key={opt.key}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1rem",
+                    padding: "1rem 1.25rem",
+                    borderRadius: "10px",
+                    border: "1.5px solid rgba(107,159,212,0.15)",
+                    background: "#f5f5f7",
+                    opacity: 0.7,
+                  }}
+                >
+                  <span style={{
+                    fontSize: "1.6rem", width: "44px", height: "44px",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    background: "rgba(0,0,0,0.05)", borderRadius: "10px", flexShrink: 0,
+                    filter: "grayscale(1)",
+                  }}>
+                    {opt.icon}
+                  </span>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: "0.9rem", fontWeight: 800, color: "#8299b8", marginBottom: "2px", textDecoration: "line-through" }}>
+                      {opt.label}
+                    </div>
+                    <div style={{ fontSize: "0.75rem", color: "#e07070", lineHeight: 1.4, fontWeight: 600 }}>
+                      {t.participantClosed}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+            return (
             <a
               key={opt.key}
               href={getLink(opt.key)}
@@ -170,11 +207,12 @@ export default function RegistrationModal() {
                 <path d="M3 8H13M8 3L13 8L8 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
-          ))}
+            );
+          })}
         </div>
 
         <p style={{ fontSize: "0.68rem", color: "#8299b8", textAlign: "center", marginTop: "1.25rem" }}>
-          Astana FIDA Drone Soccer Championship · June 1, 2026
+          {t.registration.footer}
         </p>
       </div>
     </div>

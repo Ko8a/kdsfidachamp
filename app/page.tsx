@@ -1,3 +1,4 @@
+import { LangProvider } from "@/lib/i18n";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -10,10 +11,12 @@ import Partners from "@/components/Partners";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import RegistrationModal from "@/components/RegistrationModal";
+import RegistrationCountdown from "@/components/RegistrationCountdown";
 
 export default function Home() {
   return (
-    <>
+    <LangProvider>
+      <RegistrationCountdown />
       <Header />
       <main>
         <Hero />
@@ -28,6 +31,6 @@ export default function Home() {
       </main>
       <Footer />
       <RegistrationModal />
-    </>
+    </LangProvider>
   );
 }
