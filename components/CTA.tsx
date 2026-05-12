@@ -1,4 +1,5 @@
 "use client";
+import { openRegistrationModal } from "./RegistrationModal";
 
 export default function CTA() {
   return (
@@ -126,18 +127,16 @@ export default function CTA() {
 
           {/* Buttons */}
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "3rem" }}>
-            <a
-              href="https://forms.gle/eVFWM75XRVicQgrj6"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={openRegistrationModal}
               className="btn-gold"
-              style={{ fontSize: "0.85rem", padding: "16px 32px" }}
+              style={{ fontSize: "0.85rem", padding: "16px 32px", cursor: "pointer" }}
             >
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <path d="M9 1L16 9L9 17M1 9H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               Register Your Team
-            </a>
+            </button>
             <a
               href="mailto:info@dronesoccer.kz"
               style={{

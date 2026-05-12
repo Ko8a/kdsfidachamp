@@ -1,4 +1,5 @@
 "use client";
+import { openRegistrationModal } from "./RegistrationModal";
 
 const highlights = [
   {
@@ -224,14 +225,13 @@ export default function Highlights() {
               Secure your spot at the championship
             </div>
           </div>
-          <a
-            href="https://forms.gle/eVFWM75XRVicQgrj6"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={openRegistrationModal}
             className="btn-gold"
+            style={{ cursor: "pointer" }}
           >
             Register Now →
-          </a>
+          </button>
         </div>
       </div>
 
