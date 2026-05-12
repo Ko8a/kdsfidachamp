@@ -187,6 +187,17 @@ const translations = {
       participantDesc: "Register your team to compete in the championship",
       footer: "Astana FIDA Drone Soccer Championship · June 1, 2026",
     },
+    countdown: {
+      label: "Team registration closes in",
+      days: "d",
+      hours: "h",
+      minutes: "m",
+      seconds: "s",
+      register: "Register Team →",
+      closed: "Team registration is closed",
+      closedSub: "Guest & Media registration still open",
+    },
+    participantClosed: "🔒 Team registration is closed. Only Guest and Media registration are available.",
   },
 
   ru: {
@@ -372,6 +383,17 @@ const translations = {
       participantDesc: "Зарегистрируйте свою команду для участия в чемпионате",
       footer: "Чемпионат FIDA по дрон-футболу · 1 июня 2026",
     },
+    countdown: {
+      label: "Регистрация команд закрывается через",
+      days: "д",
+      hours: "ч",
+      minutes: "мин",
+      seconds: "с",
+      register: "Зарегистрировать команду →",
+      closed: "Регистрация команд закрыта",
+      closedSub: "Регистрация для гостей и СМИ ещё открыта",
+    },
+    participantClosed: "🔒 Регистрация команд закрыта. Доступна только регистрация для гостей и СМИ.",
   },
 
   kk: {
@@ -557,6 +579,17 @@ const translations = {
       participantDesc: "Чемпионатқа қатысу үшін командаңызды тіркеңіз",
       footer: "Астана FIDA дрон-футбол чемпионаты · 1 маусым 2026",
     },
+    countdown: {
+      label: "Командалар тіркеуі жабылуына қалды",
+      days: "күн",
+      hours: "сағ",
+      minutes: "мин",
+      seconds: "с",
+      register: "Командаңызды тіркеу →",
+      closed: "Командалар тіркеуі жабылды",
+      closedSub: "Қонақтар мен БАҚ тіркеуі әлі ашық",
+    },
+    participantClosed: "🔒 Командалар тіркеуі жабылды. Тек қонақтар мен БАҚ тіркеуі қол жетімді.",
   },
 } as const;
 

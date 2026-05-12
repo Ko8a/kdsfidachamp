@@ -11,10 +11,12 @@ import Partners from "@/components/Partners";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import RegistrationModal from "@/components/RegistrationModal";
+import RegistrationCountdown from "@/components/RegistrationCountdown";
 
 export default function Home() {
   return (
     <LangProvider>
+      <RegistrationCountdown />
       <Header />
       <main>
         <Hero />

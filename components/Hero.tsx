@@ -15,7 +15,7 @@ export default function Hero() {
         justifyContent: "center",
         overflow: "hidden",
         background: "linear-gradient(160deg, #f8f6f1 0%, #eef2f8 40%, #f5f3ee 100%)",
-        paddingTop: "72px",
+        paddingTop: "116px",
       }}
     >
       {/* Hero background illustration */}

@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useLang } from "@/lib/i18n";
+import { isTeamRegOpen } from "./RegistrationCountdown";
 
 const LINKS = {
   guest: {
@@ -22,6 +23,7 @@ export default function RegistrationModal() {
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
   const { lang, t } = useLang();
+  const teamRegOpen = isTeamRegOpen();
 
   const OPTIONS = [
     {
@@ -121,7 +123,43 @@ export default function RegistrationModal() {
 
         {/* Options */}
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-          {OPTIONS.map((opt) => (
+          {OPTIONS.map((opt) => {
+            const isParticipantClosed = opt.key === "participant" && !teamRegOpen;
+            if (isParticipantClosed) {
+              return (
+                <div
+                  key={opt.key}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1rem",
+                    padding: "1rem 1.25rem",
+                    borderRadius: "10px",
+                    border: "1.5px solid rgba(107,159,212,0.15)",
+                    background: "#f5f5f7",
+                    opacity: 0.7,
+                  }}
+                >
+                  <span style={{
+                    fontSize: "1.6rem", width: "44px", height: "44px",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    background: "rgba(0,0,0,0.05)", borderRadius: "10px", flexShrink: 0,
+                    filter: "grayscale(1)",
+                  }}>
+                    {opt.icon}
+                  </span>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: "0.9rem", fontWeight: 800, color: "#8299b8", marginBottom: "2px", textDecoration: "line-through" }}>
+                      {opt.label}
+                    </div>
+                    <div style={{ fontSize: "0.75rem", color: "#e07070", lineHeight: 1.4, fontWeight: 600 }}>
+                      {t.participantClosed}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+            return (
             <a
               key={opt.key}
               href={getLink(opt.key)}
@@ -169,7 +207,8 @@ export default function RegistrationModal() {
                 <path d="M3 8H13M8 3L13 8L8 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
-          ))}
+            );
+          })}
         </div>
 
         <p style={{ fontSize: "0.68rem", color: "#8299b8", textAlign: "center", marginTop: "1.25rem" }}>
