@@ -126,6 +126,12 @@ export default function Venue() {
               {t.venue.details.map(({ label, value }, i) => {
                 const icons = ["🏙️", "🌍", "📅", "📍"];
                 return (
+              {[
+                { icon: "🏙️", label: "City", value: "Astana" },
+                { icon: "🌍", label: "Country", value: "Republic of Kazakhstan" },
+                { icon: "📅", label: "Date", value: "June 1, 2026" },
+                { icon: "📍", label: "Venue", value: "To be announced" },
+              ].map(({ icon, label, value }) => (
                 <div
                   key={label}
                   style={{

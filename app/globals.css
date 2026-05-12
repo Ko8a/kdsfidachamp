@@ -288,9 +288,132 @@ body {
   transform: translateY(-4px);
 }
 
+/* ============================================================
+   MOBILE — 768px and below
+   ============================================================ */
 @media (max-width: 768px) {
   .btn-navy, .btn-gold, .btn-outline-navy {
     padding: 12px 20px;
     font-size: 0.7rem;
   }
+
+  /* --- Section padding --- */
+  section {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* --- Hero --- */
+  #hero {
+    padding-top: 72px !important;
+    min-height: 100svh !important;
+  }
+  /* Show hero bg image on mobile but fade + shrink it to bottom */
+  .hero-bg-wrap {
+    width: 90% !important;
+    right: -5% !important;
+    bottom: 0 !important;
+    opacity: 0.55 !important;
+    mask-image: radial-gradient(ellipse 85% 80% at 60% 60%, black 20%, transparent 100%) !important;
+    -webkit-mask-image: radial-gradient(ellipse 85% 80% at 60% 60%, black 20%, transparent 100%) !important;
+  }
+  .hero-ornament { display: none !important; }
+  .hero-content  {
+    padding-top: 2.5rem !important;
+    padding-bottom: 4rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* --- About --- */
+  #about > div > div { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+
+  /* --- Program: collapse to 1-col, date row visible above content --- */
+  #program > div:first-child { display: none !important; } /* hide center decorative line */
+  .day-card {
+    grid-template-columns: 1fr !important;
+    padding: 1.25rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+  .day-date-col {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding-bottom: 0.75rem !important;
+    border-bottom: 1px solid rgba(107,159,212,0.15) !important;
+  }
+  .day-date-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 6px 12px !important;
+  }
+
+  /* --- Highlights grid: 2-col (grid is nth-child(2) of content wrapper) --- */
+  #highlights > div > div:nth-child(2) { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* --- Venue --- */
+  #venue > div > div:last-child { grid-template-columns: 1fr !important; }
+
+  /* --- Hotels: both grids go 1-col ---
+       grid1 (3-col) = nth-child(2), grid2 (2-col) = nth-child(3) */
+  #hotels > div > div:nth-child(2),
+  #hotels > div > div:nth-child(3) { grid-template-columns: 1fr !important; max-width: 100% !important; }
+
+  /* --- Attractions --- */
+  .attractions-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* --- Partners: organizer grid collapses (nth-child(2) of content wrapper) --- */
+  #partners > div > div:nth-child(2) { grid-template-columns: 1fr !important; }
+  #partners > div > div:nth-child(2) > div:nth-child(2) {
+    height: 1px !important;
+    width: 80% !important;
+    margin: 0 auto !important;
+  }
+
+  /* --- CTA --- */
+  .cta-card { padding: 2.5rem 1.5rem !important; }
+  .cta-contacts {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.25rem !important;
+  }
+
+  /* --- Footer --- */
+  footer > div > div:first-child { grid-template-columns: 1fr 1fr !important; }
+}
+
+/* ============================================================
+   SMALL MOBILE — 480px and below
+   ============================================================ */
+@media (max-width: 480px) {
+  /* --- Highlights → 1 col --- */
+  #highlights > div > div:nth-child(2) { grid-template-columns: 1fr !important; }
+
+  /* --- Attractions → 1 col --- */
+  .attractions-grid { grid-template-columns: 1fr !important; }
+
+  /* --- Hero CTA buttons → full width --- */
+  .hero-content > div:last-of-type {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .hero-content > div:last-of-type > a {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* --- Footer → 1 col --- */
+  footer > div > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* --- CTA card padding --- */
+  .cta-card { padding: 2rem 1.25rem !important; border-radius: 12px !important; }
 }
